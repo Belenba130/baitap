@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Bar Chart</title>
+    <style>
+        .chart {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            width: 100px;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .bar {
+            background-color: #007bff;
+            height: 20px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="chart" id="chart1">
+        <div class="label">China:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">1444216107</div>
+    </div>
+
+    <div class="chart" id="chart2">
+        <div class="label">India:</div>
+        <div class="bar" style="width: 30%;"> </div>
+        <div class="number">1393409038</div>
+    </div>
+    <div class="chart" id="chart3">
+        <div class="label">United States:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">332915073</div>
+    </div>
+    <div class="chart" id="chart4">
+        <div class="label">Indonesia:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">276361783</div>
+    </div>
+    <div class="chart" id="chart5">
+        <div class="label">Pakistan:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">225199937</div>
+    </div>
+    <div class="chart" id="chart6">
+        <div class="label">Brazil:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">213993437</div>
+    </div>
+    <div class="chart" id="chart7">
+        <div class="label">Nigeria:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">211400708</div>
+    </div>
+    <div class="chart" id="chart8">
+        <div class="label">Bangladesh:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">166303498</div>
+    </div>
+    <div class="chart" id="chart9">
+        <div class="label">Russia:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">145912025</div>
+    </div>
+    <div class="chart" id="chart10">
+        <div class="label">Mexico:</div>
+        <div class="bar" style="width: 30%;"></div>
+        <div class="number">130262216</div>
+    </div>
+
+
+    <script>
+        var countries = ["China", "India", "United States", "Indonesia", "Pakistan", "Brazil", "Nigeria", "Bangladesh", "Russia", "Mexico"];
+        var populations = [1444216107, 1393409038, 332915073, 276361783, 225199937, 213993437, 211400708, 166303498, 145912025, 130262216];
+
+        for (var i = 0; i < countries.length; i++) {
+            var chartId = "chart" + (i + 1);
+            var chartContainer = document.getElementById(chartId);
+
+            var label = chartContainer.querySelector(".label");
+            label.innerText = countries[i] + ":";
+
+            var bar = chartContainer.querySelector(".bar");
+            var percent = (populations[i] / Math.max(...populations)) * 50;
+            bar.style.width = percent + "%";
+
+            var number = chartContainer.querySelector(".number");
+            number.innerText = populations[i];
+        }
+    </script>
+
+</body>
+
+</html>
